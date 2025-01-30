@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  playwright-monitor:
+    image: node:22
+    container_name: playwright-monitor-container
+    restart: always
+    ports:
+      - "3000:3000" # Adjust the ports as needed
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: >
+      sh -c "npm install && npm run build && npm start"
