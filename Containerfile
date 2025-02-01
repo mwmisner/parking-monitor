@@ -1,9 +1,15 @@
-FROM node:lts AS app
+FROM node:lts AS builder
+
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-RUN npm install -g
-COPY . .
 RUN npx playwright install --with-deps
+
+COPY package*.json tsconfig.json ./
+
+RUN npm install --omit=optional
+
+COPY . .
+
 RUN npm run build
-CMD ["node", "dist/index.js"]
+
+CMD ["node", "dist/monitor.js"]

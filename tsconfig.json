@@ -4,7 +4,7 @@
     "module": "esnext", // or 'es2022', 'node16', 'nodenext'
     "lib": ["esnext", "dom"], // Include 'dom' here
     "types": ["node"],
-    "typeRoots": ["node_modules/@types"],
+    // "typeRoots": ["node_modules/@types"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
