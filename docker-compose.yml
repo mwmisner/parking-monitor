@@ -4,11 +4,8 @@ services:
     container_name: playwright-monitor-container
     working_dir: /usr/src/app
     command: ["node", "dist/monitor.js"]
-    environment:
-      - NODE_ENV=development
-      - AWS_PROFILE=default  # Optional: Set the AWS profile to use
-      - TopicArn=arn:aws:sns:<region>:<account-id>:<topic-name>
     volumes:
       - ~/.aws:/root/.aws:ro  # Mount AWS credentials as read-only
+      - ./config.json:/usr/src/app/config.json:ro  # Mount the external config file as read-only
     stdin_open: true
     tty: true

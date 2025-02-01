@@ -1,0 +1,7 @@
+{
+  "snsTopicArn": "arn:aws:sns:us-east-1:123456789012:MyTopic",
+  "region": "us-west-2",
+  "interval": 1800000,
+  "dailyReportHour": 7,
+  "monitorDates": []
+}
