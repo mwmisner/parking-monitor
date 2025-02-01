@@ -1,14 +1,14 @@
-version: '3.7'
-
 services:
   playwright-monitor:
-    image: node:22
+    build:
+      context: .
+      dockerfile: Containerfile
     container_name: playwright-monitor-container
-    restart: always
+    # restart: always
     ports:
-      - "3000:3000" # Adjust the ports as needed
+      - "3000:3000"
     environment:
-      - NODE_ENV=production
+      NODE_ENV: production
     volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app

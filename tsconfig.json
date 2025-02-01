@@ -1,11 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "outDir": "./dist",
+    "target": "es2017", // or higher
+    "module": "esnext", // or 'es2022', 'node16', 'nodenext'
+    "lib": ["esnext", "dom"], // Include 'dom' here
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "infrastructure"
+  ]
 }
